@@ -2,14 +2,20 @@ class Card:
     def __init__(self, suit, number):
         self._suit = suit
         self._number = number
-##        self._value = value
+
+        if number in ["King", "Queen", "Jack"]:
+           self._value = 10
+        elif number == "Ace":
+            self._value = 11
+        else:
+            self._value = int(number)
+        
+        
 
     # __repr__ stands for representation and allows textual representation
     # rather than the pointer to place in stack to be printed
     def __repr__(self):
-        return self._number + " of " + self._suit
-##    + " points: " + str(self._value)
-   
+        return self._number + " of " + self._suit + " points: " + str(self._value)
     
     @property
     def suit(self):
@@ -36,9 +42,13 @@ class Card:
 
 
     def show(self):
-        print("{} of {}".format(self.number, self.suit))
-        
-##        if number in [str(n) for n in range(2, 11)]:
+        print("{} of {}, Points: {}".format(self._number, self._suit, self._value))
+
+##card1 = Card("Spades", "King")
+##card1.show()
+
+
+        ##if number in [str(n) for n in range(2, 11)]:
 ##            self._value = number
 ##        elif number in ["King", "Queen", "Jack", "Ace"]:
 ##            self._value = 10
@@ -49,13 +59,8 @@ class Card:
 ##    def value(self):
 ##        return self._value
 ##
-##    @number.setter
-##    def value(self, number):
-##        if number in ["K", "Q", "J", "A"]:
-##           self._value = 10
-##        else:
-##            self._value = int(number)
-    
+
+##    
 
     
 

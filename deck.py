@@ -9,9 +9,9 @@ class Deck:
         self.populate()
         random.shuffle(self._cards)
 
-    def __repr__(self):
-        return repr(self._cards)
-    
+##    def __repr__(self):
+##        return repr(self._cards)
+##    
     def __iter__(self):
         return CardIterator(self)
 
@@ -20,8 +20,8 @@ class Deck:
         numbers = [str(n) for n in list(range(2, 11)) + ["Ace", "King", "Queen", "Jack"]]
         self._cards = [ Card(s, n) for n in numbers for s in suits ]
 
-    def __len__(self):
-        len(self._cards)
+##    def __len__(self):
+##        len(self._cards)
 
     def show(self):
         for c in self._cards:
@@ -30,28 +30,29 @@ class Deck:
     def drawCard(self):
         return self._cards.pop()
 
-    def findCard(self):
-        return self._cards.index()
+    def remove(self, card):
+        if card in self._cards:
+            self._cards.remove(card)
+            return True
+        else:
+            return False
 
-deck = Deck()
-deck.findCard(6)
-
-
-
+    def isEmpty(self):
+        return (len(self._cards) == 0)
         
-####class CardIterator:
-####    def __init__(self, my_deck):
-####        self._my_deck = my_deck
-####        self._index = 0
-####
-####    def __next__(self):
-####        #returns the next value from my_deck object's list
-####        if self._index < (len(self._my_deck._cards)):
-####            if self._index < (len(self._my_deck._cards)):
-####                result = (self._my_deck._cards[self._index])
-####                self._index += 1
-####            return result
-####        raise StopIteration
+class CardIterator:
+    def __init__(self, my_deck):
+        self._my_deck = my_deck
+        self._index = 0
+
+    def __next__(self):
+        #returns the next value from my_deck object's list
+        if self._index < (len(self._my_deck._cards)):
+            if self._index < (len(self._my_deck._cards)):
+                result = (self._my_deck._cards[self._index])
+                self._index += 1
+            return result
+        raise StopIteration
 
 
 
@@ -70,4 +71,3 @@ deck.findCard(6)
 ## Above is a nested loop - in order for populate to generate a list of cards you have
 ## combine the two lists in populat so that each suit for each number creates a card
 ## object
-
