@@ -7,12 +7,38 @@ class Player:
     def __init__(self, name):
         self._name = name
         self._hand = []
-        self.value = 0
+        self._value = 0
+        
+
+        
+        
 
     def draw(self, Deck):
         self._hand.append(Deck.drawCard())
-##        self.value += value[card._number]
-        return self
+##        for card in self._hand:
+##            if card._number == "Ace":
+##                a = input("HL")
+##            while a !="H" or a !="L":
+##                if a == "H":
+##                    self._value += 1
+##                elif a == "L":
+##                    self._value -= 9
+        
+
+##    def ifAce(self):
+##        if card.suit == "Aces":
+##            aces = input("High or Low?")
+##            if aces == "High":
+##                self._value = 11
+##            elif aces == "Low":
+##                self._value = 1
+##        
+##    
+    def getValue(self):
+        for card in self._hand:
+            if card._number == "Ace":
+                self._value = 11
+####        print(value)
 
     def showHand(self):
         for c in self._hand:
@@ -47,10 +73,15 @@ class Player:
 ##        else:
 ##            print("No points avaliable!")
 
-deck1 = Deck()
-sabina = Player("Sabina")
-card1 = sabina.draw(deck1)
-sabina.showHand()
+##deck1 = Deck()
+##sabina = Player("Sabina")
+##
+##for i in range(11):
+##    sabina.draw(deck1)
+##sabina.showHand()
+##sabina.getValue()
+
+
 
 
 

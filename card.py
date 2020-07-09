@@ -2,15 +2,13 @@ class Card:
     def __init__(self, suit, number):
         self._suit = suit
         self._number = number
-
-        if number in ["King", "Queen", "Jack"]:
+        self._value = 0
+            
+        if number in ["King", "Queen", "Jack", "Ace"]:
            self._value = 10
-        elif number == "Ace":
-            self._value = 11
         else:
             self._value = int(number)
-        
-        
+    
 
     # __repr__ stands for representation and allows textual representation
     # rather than the pointer to place in stack to be printed
@@ -44,6 +42,9 @@ class Card:
     def show(self):
         print("{} of {}, Points: {}".format(self._number, self._suit, self._value))
 
+    def isAce(self):
+        return self._number == "Ace"
+    
 ##card1 = Card("Spades", "King")
 ##card1.show()
 
